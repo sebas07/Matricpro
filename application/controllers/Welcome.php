@@ -21,6 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		//prueba, vo me ta vacilando??? mec
+		//yo me cago en satanas
 		$this->load->view('welcome_message');
 	}
 }
