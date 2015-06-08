@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f8b5cb0-f886-4607-8704-1607b59e9c91" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/layout/default/menuAdministrador.php" afterPath="$PROJECT_DIR$/application/views/layout/default/menuAdministrador.php" />
-    </list>
+    <list default="true" id="9f8b5cb0-f886-4607-8704-1607b59e9c91" name="Default" comment="" />
     <ignored path="Matricpro.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -70,8 +68,8 @@
       <file leaf-file-name="menuAdministrador.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/layout/default/menuAdministrador.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41463414" vertical-offset="0" max-vertical-offset="656">
-              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.5960366" vertical-offset="0" max-vertical-offset="656">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -513,8 +511,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/layout/default/menuAdministrador.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41463414" vertical-offset="0" max-vertical-offset="656">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.5960366" vertical-offset="0" max-vertical-offset="656">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#!!top" expanded="true" />
