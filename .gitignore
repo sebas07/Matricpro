@@ -51,3 +51,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+scope_settings.xml
+.name
+encodings.xml
+misc.xml
+modules.xml
+tutorial.iml
+vcs.xml
+workspace.xml
