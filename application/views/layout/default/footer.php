@@ -1,9 +1,7 @@
 </div>
 <footer>
-    <p><?= APP_COMPANY?></p>
+    <p>footer</p>
 </footer>
-
-
 </body>
 </html>
 
