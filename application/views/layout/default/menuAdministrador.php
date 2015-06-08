@@ -9,7 +9,7 @@
                     <li><a href=""><strong>Carreras</strong></a></li>
                     <li><a href=""><strong>Cursos</strong></a></li>
                     <li><a href=""><strong>Profesores</strong></a></li>
-                    <li><a href=""><strong>Estudiantes</strong></a></li>
+                    <li><a href="<?= base_url(); ?>index.php/estudiante/"><strong>Estudiantes</strong></a></li>
                     <li><a href=""><strong>Administradores</strong></a></li>
                 </ul>
             </div>
