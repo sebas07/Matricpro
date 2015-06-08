@@ -22,6 +22,8 @@ class Welcome extends CI_Controller {
 	{
 		//prueba, vo me ta vacilando??? mec
 		//yo me cago en satanas
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuAdministrador.php');
 		$this->load->view('welcome_message');
 	}
 }

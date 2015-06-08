@@ -1,9 +1,5 @@
 <body>
 <div id="header">
-    <div id="nombreAplicacion">
-        <h3><?=APP_NAME?></h3>
-    </div>
-
     <nav id="menu">
         <ul id="top_menu">
 
@@ -21,12 +17,5 @@
 
 
 </div>
-<div id="usuario">
-    <div id="usuariotexto">
-        <p>
-            <?=$usuario?>
-        </p>
-    </div>
 
-</div>
 <div id="contenido">
