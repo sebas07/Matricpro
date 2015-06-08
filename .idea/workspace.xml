@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f8b5cb0-f886-4607-8704-1607b59e9c91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/carrera.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/carrera/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/layout/default/footer.php" afterPath="$PROJECT_DIR$/application/views/layout/default/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9f8b5cb0-f886-4607-8704-1607b59e9c91" name="Default" comment="" />
     <ignored path="Matricpro.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
