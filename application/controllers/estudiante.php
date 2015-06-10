@@ -11,7 +11,7 @@ class Estudiante extends CI_Controller {
 //        if($this->session->userdata('logged_in')){
 
         $this->load->database();
-        $this->load->library('grocery_crud');
+        $this->load->library('Grocery_crud');
 //        }
 //        else{
 //            redirect('welcome');

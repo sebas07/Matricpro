@@ -3514,9 +3514,9 @@ class Grocery_CRUD extends grocery_CRUD_States
 	protected $default_css_path						= null; //autogenerate, please do not modify
 	protected $default_texteditor_path 				= null; //autogenerate, please do not modify
 	protected $default_theme_path					= null; //autogenerate, please do not modify
-	protected $default_language_path				= 'assets/grocery_crud/languages';
-	protected $default_config_path					= 'assets/grocery_crud/config';
-	protected $default_assets_path					= 'assets/grocery_crud';
+	protected $default_language_path				= 'assets/Grocery_crud/languages';
+	protected $default_config_path					= 'assets/Grocery_crud/config';
+	protected $default_assets_path					= 'assets/Grocery_crud';
 
 	/**
 	 *
@@ -4363,7 +4363,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 	protected function _initialize_variables()
 	{
 		$ci = &get_instance();
-		$ci->load->config('grocery_crud');
+		$ci->load->config('Grocery_crud');
 
 		$this->config = (object)array();
 
