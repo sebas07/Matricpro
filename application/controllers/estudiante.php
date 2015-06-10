@@ -29,7 +29,7 @@ class Estudiante extends CI_Controller {
             $crud->set_theme('flexigrid');
 
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-            $crud->set_table('estuduante');
+            $crud->set_table('Estuduante');
 
             /* Le asignamos un nombre */
             $crud->set_subject('Estudiante');
