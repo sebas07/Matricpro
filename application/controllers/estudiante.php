@@ -32,7 +32,7 @@ class Estudiante extends CI_Controller {
             $crud->set_table('Estuduante');
 
             /* Le asignamos un nombre */
-            $crud->set_subject('Estudiante');
+            $crud->set_subject('estudiante');
 
             /* Asignamos el idioma español */
             $crud->set_language('spanish');
