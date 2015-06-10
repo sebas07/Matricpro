@@ -29,7 +29,7 @@ class Carrera extends CI_Controller {
             $crud->set_theme('flexigrid');
 
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-            $crud->set_table('Carrera');
+            $crud->set_table('carrera');
 
             /* Le asignamos un nombre */
             $crud->set_subject('Carrera');
