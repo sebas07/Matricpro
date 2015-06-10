@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://matricpro.esy.es';
+$config['base_url'] = 'http://localhost/Proyectos/Matricpro';
 
 /*
 |--------------------------------------------------------------------------
