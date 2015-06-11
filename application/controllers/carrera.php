@@ -39,7 +39,7 @@ class Carrera extends CI_Controller {
 
             /* Aqui le decimos a grocery que estos campos son obligatorios */
             $crud->required_fields(
-//                'id',
+//               'id',
                 'nombre',
                 'descripcion'
             );
@@ -55,13 +55,16 @@ class Carrera extends CI_Controller {
             $crud->display_as('nombre','Nombre');
             $crud->display_as('descripcion','Descripción');
 
-//            $crud->display_as('idEspecialidad','Especialidad');
+//
+//
+//            $crud->callback_edit_field('nombre',function () {
+//                return '<input type="text" maxlength="50" value="juan" name="nombre">';
+//            });
+
+//
 
 
-            /* Generamos la tabla */
-
-//            $crud->set_relation('idEspecialidad','especialidad','descripcion');
-
+            /////////////////
 
             $output = $crud->render();
 
