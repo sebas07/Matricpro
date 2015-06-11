@@ -53,7 +53,7 @@ class Curso extends CI_Controller {
 //                'idEspecialidad'
 //            );
 
-            $crud->display_as('nombre','Nombre','juan');
+            $crud->display_as('nombre','Nombre');
             $crud->display_as('sigla','Sigla');
             $crud->display_as('descripcion','Descripción');
 
