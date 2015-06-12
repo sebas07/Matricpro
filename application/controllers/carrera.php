@@ -44,34 +44,15 @@ class Carrera extends CI_Controller {
                 'descripcion'
             );
 
-            /* Aqui le indicamos que campos deseamos mostrar */
-//            $crud->columns(
-//                'nombre',
-//                'apellido1',
-//                'apellido2',
-//                'idEspecialidad'
-//            );
 
             $crud->display_as('nombre','Nombre');
             $crud->display_as('descripcion','Descripción');
 
-//
-//
-//            $crud->callback_edit_field('nombre',function () {
-//                return '<input type="text" maxlength="50" value="juan" name="nombre">';
-//            });
-
-//
 
 
-            /////////////////
 
             $output = $crud->render();
 
-            /* La cargamos en la vista situada en
-            /applications/views/productos/administracion.php */
-//            $data['usuario'] = $this->session->userdata('username');
-//            $data['title'] = "Profesor";
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
             $this->load->view('carrera/index', $output);
@@ -83,11 +64,5 @@ class Carrera extends CI_Controller {
         }
     }
 
-    /*
-     *
-     **/
-//    function administracion()
-//    {
-//
-//    }
+
 }

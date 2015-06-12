@@ -29,7 +29,7 @@ class Estudiante extends CI_Controller {
             $crud->set_theme('flexigrid');
 
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-            $crud->set_table('estuduante');
+            $crud->set_table('usuario');
 
             /* Le asignamos un nombre */
             $crud->set_subject('estudiante');
@@ -38,43 +38,30 @@ class Estudiante extends CI_Controller {
             $crud->set_language('spanish');
 
             /* Aqui le decimos a grocery que estos campos son obligatorios */
-            $crud->required_fields(
-//                'id',
-                'carnet',
-                'nombre',
-                'apellido1',
-                'apellido2',
-                'fechaNacimiento'
-            );
-
-            /* Aqui le indicamos que campos deseamos mostrar */
-//            $crud->columns(
+//            $crud->required_fields(
+////                'id',
+//                'carnet',
 //                'nombre',
 //                'apellido1',
 //                'apellido2',
-//                'idEspecialidad'
+//                'fechaNacimiento'
 //            );
 
-            $crud->display_as('canet','Carnet');
-            $crud->display_as('nombre','Nombre');
-            $crud->display_as('apellido1','Primer Apellido');
-            $crud->display_as('apellido2','Segundo Apellido');
-            $crud->display_as('fechaNacimiento','Fecha de nacimiento');
+            $crud->fields('customerName','contactLastName','phone','city','country','creditLimit');
+            $crud->add_fields('idUsuario','nombreUsuario','contrasena','tipoUsuario');
+            $crud->edit_fields('username','first_name','last_name');
 
-//            $crud->display_as('idEspecialidad','Especialidad');
+//            $crud->display_as('canet','Carnet');
+//            $crud->display_as('nombre','Nombre');
+//            $crud->display_as('apellido1','Primer Apellido');
+//            $crud->display_as('apellido2','Segundo Apellido');
+//            $crud->display_as('fechaNacimiento','Fecha de nacimiento');
 
-
-            /* Generamos la tabla */
-
-//            $crud->set_relation('idEspecialidad','especialidad','descripcion');
-
+            $crud->callback_after_insert(array($this, 'log_user_after_insert'));
+            $crud->callback_after_update(array($this, 'log_user_after_update'));
 
             $output = $crud->render();
 
-            /* La cargamos en la vista situada en
-            /applications/views/productos/administracion.php */
-//            $data['usuario'] = $this->session->userdata('username');
-//            $data['title'] = "Profesor";
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
             $this->load->view('estudiante/index', $output);
@@ -85,12 +72,18 @@ class Estudiante extends CI_Controller {
             show_error($e->getMessage().' --- '.$e->getTraceAsString());
         }
     }
+    function log_user_after_insert($post_array,$primary_key)
+    {
+        $user_logs_insert = array(
+            "idUsuario" => $primary_key,
+            "carnet" => 'prueba',
+            "nombre" => 'prueba',
+            "apellido1" => 'prueba',
+            "apellido2" => 'prueba'
+        );
 
-    /*
-     *
-     **/
-//    function administracion()
-//    {
-//
-//    }
+        $this->db->insert('estuduante',$user_logs_insert);
+
+        return true;
+    }
 }

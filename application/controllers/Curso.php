@@ -111,14 +111,26 @@ class Curso extends CI_Controller {
                 'año'
             );
 
-//
+            $crud->columns('idProfesor','grupo','semestre','estado','año');
+
             $crud->add_fields('idCurso', 'idProfesor','grupo','semestre','estado','año');
-            $crud->edit_fields('idProfesor','grupo','semestre','estado','año');
+            $crud->edit_fields('idCurso', 'idProfesor','grupo','semestre','estado','año');
+//            $crud->set_relation('idCurso','curso','nombre');
+
+            $crud->field_type('idCurso','invisible');
+
+            $GLOBALS['idCurso'] = $idCurso;
+            $crud->callback_before_insert(function ($post_array) {
+                    $post_array['idCurso'] = $GLOBALS['idCurso'];
+                    return $post_array;
+            }
+        );
+            $crud->set_relation('idProfesor','profesor','nombre');
 
             $output = $crud->render();
-
+            $data['cursoPadre'] = "Programacion";
             $this->load->view('layout/default/header.php');
-            $this->load->view('layout/default/menuAdministrador.php');
+            $this->load->view('layout/default/menuAdministrador.php',$data);
             $this->load->view('curso/index', $output);
             $this->load->view('layout/default/footer.php');
 
@@ -127,8 +139,8 @@ class Curso extends CI_Controller {
         }
     }
 
-    function add_field_callback_1()
-    {
-        return '<input type="text" maxlength="50" value="1" name="idCurso" style="width:462px">';
+    function test_callback($post_array,$idCurso){
+        $post_array['idCurso'] = $idCurso;
+        return $post_array;
     }
 }

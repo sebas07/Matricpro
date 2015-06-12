@@ -1,4 +1,4 @@
-<h1>Cursos</h1>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,9 @@
 
 </head>
 <body>
+
+
+
 <div style='height:20px;'></div>
 <div>
     <?php echo $output; ?>

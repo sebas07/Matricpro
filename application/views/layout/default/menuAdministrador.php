@@ -16,3 +16,4 @@
 
 <div id="contenido">
 
+<?php if(isset($cursoPadre)) echo $cursoPadre?>
