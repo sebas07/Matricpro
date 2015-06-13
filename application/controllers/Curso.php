@@ -145,4 +145,5 @@ class Curso extends CI_Controller {
         $post_array['idCurso'] = $idCurso;
         return $post_array;
     }
+
 }
