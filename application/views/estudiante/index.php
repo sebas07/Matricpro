@@ -1,4 +1,4 @@
-<h1>Estamos en estudiante</h1>
+<h1>Estudiante</h1>
 
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,4 @@
-<h1>Carreras</h1>
+<h1>Profesores</h1>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,6 @@
     <?php foreach($js_files as $file): ?>
         <script src="<?php echo $file; ?>"></script>
     <?php endforeach; ?>
-
 </head>
 <body>
 <div style='height:20px;'></div>
@@ -21,5 +20,3 @@
 </div>
 </body>
 </html>
-
-

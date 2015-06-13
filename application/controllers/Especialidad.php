@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /* Heredamos de la clase CI_Controller */
-class Estudiante extends CI_Controller {
+class Especialidad extends CI_Controller {
 
     function __construct()
     {
@@ -29,46 +29,30 @@ class Estudiante extends CI_Controller {
             $crud->set_theme('flexigrid');
 
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-            $crud->set_table('estuduante');
+            $crud->set_table('especialidad');
 
             /* Le asignamos un nombre */
-            $crud->set_subject('Estudiante');
+            $crud->set_subject('Especialidad');
 
             /* Asignamos el idioma español */
             $crud->set_language('spanish');
 
             /* Aqui le decimos a grocery que estos campos son obligatorios */
-//            $crud->required_fields(
-////                'id',
-//                'carnet',
-//                'nombre',
-//                'apellido1',
-//                'apellido2',
-//                'fechaNacimiento'
-//            );
+            $crud->required_fields(
+//               'id',
+                'descripcion'
+            );
 
-            $crud->columns('carnet','nombre','apellido1','apellido2','fechaNacimiento');
-            $crud->add_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento','contrasena');
-            $crud->edit_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento');
+            $crud->display_as('descripcion','Descripción');
 
 
 
-            $crud->display_as('canet','Carnet');
-            $crud->display_as('nombre','Nombre');
-            $crud->display_as('apellido1','Primer Apellido');
-            $crud->display_as('apellido2','Segundo Apellido');
-            $crud->display_as('fechaNacimiento','Fecha de nacimiento');
-            $crud->display_as('contrasena','Contraseña');
-
-
-//            $crud->callback_after_insert(array($this, 'log_user_after_insert'));
-//            $crud->callback_after_update(array($this, 'log_user_after_update'));
 
             $output = $crud->render();
 
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
-            $this->load->view('estudiante/index', $output);
+            $this->load->view('especialidad/index', $output);
             $this->load->view('layout/default/footer.php');
 
         }catch(Exception $e){
@@ -76,5 +60,6 @@ class Estudiante extends CI_Controller {
             show_error($e->getMessage().' --- '.$e->getTraceAsString());
         }
     }
+
 
 }

@@ -45,22 +45,18 @@ class Curso extends CI_Controller {
                 'descripcion'
             );
 
-            /* Aqui le indicamos que campos deseamos mostrar */
-//            $crud->columns(
-//                'nombre',
-//                'apellido1',
-//                'apellido2',
-//                'idEspecialidad'
-//            );
+            $crud->columns('nombre','sigla','descripcion', 'Pertenece_a_la_carrera');
+
+//            $crud->add_fields('nombre','sigla','descripcion');
+//            $crud->edit_fields('nombre','sigla','descripcion');
 
             $crud->display_as('nombre','Nombre');
             $crud->display_as('sigla','Sigla');
             $crud->display_as('descripcion','Descripción');
 
 
-
-            $crud -> add_action ( 'Abrir curso' , base_url().'assets/grocery_crud/themes/flexigrid/css/images/add.png' , 'curso/abrircurso' ) ;
-            $crud->set_relation_n_n("Pertenece_a_las_carreras", 'cursoporcarrera','carrera','idCurso', 'idCarrera', 'nombre');
+            $crud -> add_action ( 'Abrir curso' , base_url().'assets/Grocery_crud/themes/flexigrid/css/images/add.png' , 'curso/abrircurso' ) ;
+            $crud->set_relation_n_n("Pertenece_a_la_carrera", 'cursoporcarrera','carrera','idCurso', 'idCarrera', 'nombre');
 //            $crud->set_relation_n_n("Requisitos", 'dependencia','curso','idCursoPorCarrera', 'dependencia', 'nombre');
             $output = $crud->render();
 
@@ -104,18 +100,24 @@ class Curso extends CI_Controller {
 
             /* Aqui le decimos a grocery que estos campos son obligatorios */
             $crud->required_fields(
-                'idProfesor',
                 'grupo',
                 'semestre',
                 'estado',
-                'año'
+                'año',
+                'capacidad'
             );
 
-            $crud->columns('idProfesor','grupo','semestre','estado','año');
+            $crud->columns('idProfesor','grupo','semestre','estado','año','capacidad');
 
-            $crud->add_fields('idCurso', 'idProfesor','grupo','semestre','estado','año');
-            $crud->edit_fields('idCurso', 'idProfesor','grupo','semestre','estado','año');
-//            $crud->set_relation('idCurso','curso','nombre');
+//            $crud->add_fields('idCurso', 'idProfesor','grupo','semestre','estado','año','capacidad');
+//            $crud->edit_fields('idCurso', 'idProfesor','grupo','semestre','estado','año','capacidad');
+
+            $crud->display_as('idProfesor','Profesor');
+            $crud->display_as('grupo','Grupo');
+            $crud->display_as('semestre','Semestre');
+            $crud->display_as('estado','Estado');
+            $crud->display_as('año','Año');
+            $crud->display_as('capacidad','Capacidad de estudiantes');
 
             $crud->field_type('idCurso','invisible');
 
