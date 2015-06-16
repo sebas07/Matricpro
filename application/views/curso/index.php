@@ -1,4 +1,3 @@
-<h1>Cursos</h1>
 
 <!DOCTYPE html>
 <html>

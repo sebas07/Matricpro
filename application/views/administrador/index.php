@@ -1,4 +1,4 @@
-<h1>Administradores</h1>
+
 
 <!DOCTYPE html>
 <html>

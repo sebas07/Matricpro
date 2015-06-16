@@ -1,4 +1,3 @@
-<h1>Profesores</h1>
 
 <!DOCTYPE html>
 <html>

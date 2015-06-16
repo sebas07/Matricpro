@@ -55,6 +55,8 @@ class Carrera extends CI_Controller {
 
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
+            $data['titulo'] = 'Carreras';
+            $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('carrera/index', $output);
             $this->load->view('layout/default/footer.php');
 
@@ -78,6 +80,7 @@ class Carrera extends CI_Controller {
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
             $crud->set_table('cursoporcarrera');
             $crud->where('idCarrera', $idCarrera);
+            $crud->order_by('ciclo','asc');
 
             /* Le asignamos un nombre */
             $crud->set_subject('Curso');
@@ -92,12 +95,16 @@ class Carrera extends CI_Controller {
 
 //            inicio
             $crud->columns('idCurso','ciclo');
+//            $crud->columns('idCurso','ciclo','Dependencia');
 
             $crud->add_fields('idCarrera', 'idCurso','ciclo');
+//            $crud->add_fields('idCarrera', 'idCurso','ciclo','Dependencia');
             $crud->edit_fields('ciclo');
+//            $crud->edit_fields('ciclo','Dependencia');
 
             $crud->display_as('idCurso','Curso');
             $crud->display_as('ciclo','Ciclo');
+//            $crud->display_as('Dependencia','Dependencia');
 
             $crud->field_type('idCarrera','invisible');
 
@@ -116,12 +123,18 @@ class Carrera extends CI_Controller {
 //
 //            $crud->set_relation('idCarrera','carrera','nombre');
             $crud->set_relation('idCurso','curso','nombre');
+
+
+//            $crud->set_relation_n_n('Dependencia', 'dependencia','curso','idCursoPorCarrera', 'depende', 'nombre');
+
 // fin
 
             $output = $crud->render();
 
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
+            $data['titulo'] = 'Carreras';
+            $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('carrera/index', $output);
             $this->load->view('layout/default/footer.php');
 

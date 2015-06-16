@@ -68,6 +68,8 @@ class Estudiante extends CI_Controller {
 
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
+            $data['titulo'] = 'Estudiantes';
+            $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('estudiante/index', $output);
             $this->load->view('layout/default/footer.php');
 

@@ -12,6 +12,7 @@ class Curso extends CI_Controller {
 
         $this->load->database();
         $this->load->library('Grocery_crud');
+        $this->load->model('curso_model');
 //        }
 //        else{
 //            redirect('welcome');
@@ -66,6 +67,8 @@ class Curso extends CI_Controller {
 //            $data['title'] = "Profesor";
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
+            $data['titulo'] = 'Cursos';
+            $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('curso/index', $output);
             $this->load->view('layout/default/footer.php');
 
@@ -130,9 +133,11 @@ class Curso extends CI_Controller {
             $crud->set_relation('idProfesor','profesor','nombre');
 
             $output = $crud->render();
-            $data['cursoPadre'] = "Programacion";
+            $curso =  $this->curso_model->obtener($idCurso);
+            $data['nombreCurso'] = $curso->nombre.' '. $curso->sigla;
             $this->load->view('layout/default/header.php');
-            $this->load->view('layout/default/menuAdministrador.php',$data);
+            $this->load->view('layout/default/menuAdministrador.php');
+            $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('curso/index', $output);
             $this->load->view('layout/default/footer.php');
 
