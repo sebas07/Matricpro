@@ -10,8 +10,9 @@ class Carrera extends CI_Controller {
 
 //        if($this->session->userdata('logged_in')){
 
-            $this->load->database();
-            $this->load->library('Grocery_crud');
+        $this->load->database();
+        $this->load->library('Grocery_crud');
+        $this->load->model('carrera_model');
 //        }
 //        else{
 //            redirect('welcome');
@@ -131,9 +132,11 @@ class Carrera extends CI_Controller {
 
             $output = $crud->render();
 
+
+            $carrera = $this->carrera_model->obtener($idCarrera);
+            $data['nombreCarrera'] = $carrera->nombre;
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuAdministrador.php');
-            $data['titulo'] = 'Carreras';
             $this->load->view('layout/default/titulos.php',$data);
             $this->load->view('carrera/index', $output);
             $this->load->view('layout/default/footer.php');
