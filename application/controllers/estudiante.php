@@ -47,9 +47,9 @@ class Estudiante extends CI_Controller {
 //                'fechaNacimiento'
 //            );
 
-            $crud->columns('carnet','nombre','apellido1','apellido2','fechaNacimiento');
-            $crud->add_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento','contrasena');
-            $crud->edit_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento');
+            $crud->columns('carnet','nombre','apellido1','apellido2','fechaNacimiento', 'Carreras');
+            $crud->add_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento', 'Carreras','contrasena');
+            $crud->edit_fields('carnet','nombre','apellido1','apellido2','fechaNacimiento','Carreras');
 
 
 
@@ -58,6 +58,7 @@ class Estudiante extends CI_Controller {
             $crud->display_as('apellido1','Primer Apellido');
             $crud->display_as('apellido2','Segundo Apellido');
             $crud->display_as('fechaNacimiento','Fecha de nacimiento');
+            $crud->set_relation_n_n('Carreras', 'estudianteporcarrera','carrera','idEstudiante', 'idCarrera', 'nombre');
             $crud->display_as('contrasena','Contraseña');
 
 
