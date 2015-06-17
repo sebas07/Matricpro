@@ -8,6 +8,7 @@
             </ul>
         </div>
     </nav>
+    <a href="InicioProfesor/logout">Logout</a>
 </div>
 
 <div id="contenido">

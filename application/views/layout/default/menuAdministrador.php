@@ -13,6 +13,7 @@
             </ul>
         </div>
     </nav>
+    <a href="Welcome/logout">Logout</a>
 </div>
 
 <div id="contenido">
