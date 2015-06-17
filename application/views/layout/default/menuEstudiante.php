@@ -6,10 +6,10 @@
                 <li><a href="<?=base_url()?>inicioEstudiante"><strong>Principal</strong></a></li>
                 <li><a href="<?=base_url()?>inicioEstudiante"><strong>Matricular</strong></a></li>
                 <li><a href="<?=base_url()?>inicioEstudiante"><strong>Expediente Académico</strong></a></li>
+                <li><a class="btn btn-danger" href="InicioEstudiante/logout">Salir</a></li>
             </ul>
         </div>
     </nav>
-    <a href="InicioEstudiante/logout">Logout</a>
 </div>
 
 <div id="contenido">

@@ -15,7 +15,7 @@
         <?= form_password($contrasenna) ?>
         <br />
         <br />
-        <?= form_submit('btnIngresar', 'Ingresar', 'class="form-control btn btn-danger"'); ?>
+        <?= form_submit('btnIngresar', 'Ingresar', 'class="form-control btn btn-primary"'); ?>
         <?= form_close() ?>
         <br />
         <?php echo validation_errors('<p class="error">'); ?>

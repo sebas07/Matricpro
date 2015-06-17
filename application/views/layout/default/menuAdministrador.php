@@ -10,10 +10,10 @@
                 <li><a href="<?=base_url()?>estudiante/"><strong>Estudiantes</strong></a></li>
                 <li><a href="<?=base_url()?>administrador/"><strong>Administradores</strong></a></li>
                 <li><a href="<?=base_url()?>especialidad/"><strong>Especialidades</strong></a></li>
+                <li><a class="btn btn-danger" href="Welcome/logout">Salir</a></li>
             </ul>
         </div>
     </nav>
-    <a href="Welcome/logout">Logout</a>
 </div>
 
 <div id="contenido">
