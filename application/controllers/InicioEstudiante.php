@@ -5,8 +5,10 @@ class InicioEstudiante extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $sessionActual = $this->session->userdata('logged_in');
-        if(!$sessionActual || !($sessionActual['tipo'] == 1)) {
-            redirect('logueo', 'refresh');
+        if(!$sessionActual) {
+            redirect(base_url().'Welcome/errorLogueo');
+        } elseif (!($sessionActual['tipo'] == 1)) {
+            redirect(base_url().'Welcome/errorPermiso');
         }
     }
     public function index() {
@@ -18,6 +20,6 @@ class InicioEstudiante extends CI_Controller {
     function logout() {
         $this->session->unset_userdata('logged_in');
         session_destroy();
-        redirect('InicioEstudiante', 'refresh');
+        redirect('Welcome', 'refresh');
     }
 }

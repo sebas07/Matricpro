@@ -5,8 +5,10 @@ class InicioAdministrador extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $sessionActual = $this->session->userdata('logged_in');
-        if(!$sessionActual || !($sessionActual['tipo'] == 3)) {
-            redirect('logueo/administradores', 'refresh');
+        if(!$sessionActual) {
+            redirect(base_url().'Welcome/errorLogueo');
+        } elseif (!($sessionActual['tipo'] == 3)) {
+            redirect(base_url().'Welcome/errorPermiso');
         }
     }
     public function index() {
@@ -18,6 +20,6 @@ class InicioAdministrador extends CI_Controller {
     function logout() {
         $this->session->unset_userdata('logged_in');
         session_destroy();
-        redirect('InicioAdministrador', 'refresh');
+        redirect('Welcome', 'refresh');
     }
 }

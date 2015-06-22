@@ -8,7 +8,8 @@ class Welcome extends CI_Controller {
 	public function index() {
         $sessionActual = $this->session->userdata('logged_in');
         if(!$sessionActual) {
-            $this->load->view('layout/default/error_logueo.php');
+//            $this->load->view('layout/default/error_logueo.php');
+            redirect('logueo', 'refresh');
         } else {
             switch($sessionActual['tipo']) {
                 case 1:
@@ -26,4 +27,10 @@ class Welcome extends CI_Controller {
             }
         }
 	}
+    public function errorLogueo() {
+        $this->load->view('layout/default/error_logueo.php');
+    }
+    public function errorPermiso() {
+        $this->load->view('layout/default/error_permiso.php');
+    }
 }

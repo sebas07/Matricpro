@@ -5,8 +5,10 @@ class Curso extends CI_Controller {
     {
         parent::__construct();
         $sessionActual = $this->session->userdata('logged_in');
-        if(!$sessionActual || !($sessionActual['tipo'] == 3)) {
-            redirect('logueo/administradores', 'refresh');
+        if(!$sessionActual) {
+            redirect(base_url().'Welcome/errorLogueo');
+        } elseif (!($sessionActual['tipo'] == 3)) {
+            redirect(base_url().'Welcome/errorPermiso');
         } else {
             $this->load->database();
             $this->load->library('Grocery_crud');
