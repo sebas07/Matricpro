@@ -18,6 +18,13 @@ class Curso_model extends CI_Model
         if ($query->num_rows() > 0) return $query->result()[0];
         else return false;
     }
+    function obtenerPadre($id)
+    {
+        $this->db->where('idCurso', $id);
+        $query = $this->db->query("SELECT cp.*, ch.grupo from curso as cp inner join cursohijo as ch on cp.idCurso = ch.idCurso where idCursoHijo = $id;");
+        if ($query->num_rows() > 0) return $query->result()[0];
+        else return false;
+    }
 
 
 }
