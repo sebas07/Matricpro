@@ -26,12 +26,6 @@ class Curso_model extends CI_Model
         else return false;
     }
 
-    function obtenerCursos(){
-        $query = $this->db->get('curso');
-        if($query->num_rows() > 0) return $query;
-        else return false;
-    }
-
 
 }
 ?>
