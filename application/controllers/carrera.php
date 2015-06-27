@@ -60,17 +60,17 @@ class Carrera extends CI_Controller {
                 'idCurso',
                 'ciclo'
             );
-            $crud->columns('idCurso','ciclo');
+            $crud->columns('idCurso','ciclo','Dependencia');
 //            $crud->columns('idCurso','ciclo','Dependencia');
 
-            $crud->add_fields('idCarrera', 'idCurso','ciclo');
-//            $crud->add_fields('idCarrera', 'idCurso','ciclo','Dependencia');
-            $crud->edit_fields('ciclo');
-//            $crud->edit_fields('ciclo','Dependencia');
+//            $crud->add_fields('idCarrera', 'idCurso','ciclo');
+            $crud->add_fields('idCarrera', 'idCurso','ciclo','Dependencia');
+//            $crud->edit_fields('ciclo');
+            $crud->edit_fields('ciclo','Dependencia');
 
             $crud->display_as('idCurso','Curso');
             $crud->display_as('ciclo','Ciclo');
-//            $crud->display_as('Dependencia','Dependencia');
+            $crud->display_as('Dependencia','Requisitos');
 
             $crud->field_type('idCarrera','invisible');
 
@@ -88,7 +88,12 @@ class Carrera extends CI_Controller {
 //
 //            $crud->set_relation('idCarrera','carrera','nombre');
             $crud->set_relation('idCurso','curso','nombre');
-//            $crud->set_relation_n_n('Dependencia', 'dependencia','curso','idCursoPorCarrera', 'depende', 'nombre');
+            $crud->set_relation_n_n('Dependencia', 'dependencia','curso','idCursoPorCarrera', 'dependencia', 'nombre');
+//            $crud->set_relation_n_n('Especialidades', 'especialidadporprofesor','especialidad','idProfesor', 'idEspecialidad', 'descrpcion');
+
+//            $crud->set_relation('idCarrera','carrera','nombre');
+//            $crud->set_relation('Dependencia','curso','nombre');
+//            $crud->where('idCarrera', '');
 // fin
             $output = $crud->render();
 
