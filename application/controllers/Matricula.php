@@ -13,7 +13,7 @@ class Matricula extends CI_Controller
     }
 
     function Matricular(){
-        $data['cursoshijo'] = $this->cursoHijo_model->obtenerCursosHijos();
+        $data['cursoshijo'] = $this->curso_model->obtenerLista();
         $data['profesores'] = $this->profesor_model->obtenerProfesores();
         $data['cursos'] = $this->curso_model->obtenerCursos();
         $this->load->view('layout/default/header.php');
