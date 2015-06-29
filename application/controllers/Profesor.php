@@ -12,6 +12,7 @@ class Profesor extends CI_Controller {
         } else {
             $this->load->database();
             $this->load->library('Grocery_crud');
+            $this->load->model('Profesor_model');
         }
     }
     function index()
@@ -75,7 +76,7 @@ class Profesor extends CI_Controller {
     }
 
     function editarDatos() {
-        $this->load->model('Profesor_model');
+//        $this->load->model('Profesor_model');
         $data = array(
             'nombre' => $this->input->post('nombre'),
             'apellido1' => $this->input->post('apellido1'),
@@ -84,5 +85,32 @@ class Profesor extends CI_Controller {
         );
         $this->Profesor_model->actualizarDatos($this->session->userdata('logged_in')['id'] ,$data);
         redirect(base_url());
+    }
+    function cambio_contrasena() {
+        $data['profesor'] = $this->Profesor_model->obtenerProfesor($this->session->userdata('logged_in')['id']);
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuProfesor.php');
+        $this->load->view('layout/default/cambio_contrasena.php', $data);
+        $this->load->view('layout/default/footer.php');
+    }
+    function cambiar_contrasena() {
+        $data = array(
+            'actual' => $this->input->post('actual'),
+            'contrasena' => $this->input->post('contrasena'),
+            'contrasena2' => $this->input->post('contrasena2')
+        );
+        $data['profesor'] = $this->Profesor_model->obtenerProfesor($this->session->userdata('logged_in')['id']);
+//        foreach ($data['profesor']->result() as $profe) {
+            if($data['profesor']->contrasena == $data['actual']) {
+                if($data['contrasena'] == $data['contrasena2']) {
+                    $this->Profesor_model->cambiar_contrasena($this->session->userdata('logged_in')['id'] ,$data);
+                    redirect(base_url());
+                } else {
+                    echo 'Error, contrasenas no coinciden';
+                }
+            } else {
+                echo 'Error, contrasena actual no es correcta';
+            }
+//        }
     }
 }

@@ -36,7 +36,7 @@ class Profesor_model extends CI_Model
         $this->db->limit(1);
         $query = $this->db->get();
         if($query->num_rows() > 0) {
-            return $query;
+            return $query->result()[0];
         } else {
             return false;
         }
@@ -47,6 +47,13 @@ class Profesor_model extends CI_Model
             'apellido1' => $data['apellido1'],
             'apellido2' => $data['apellido2'],
             'cedula' => $data['cedula']
+        );
+        $this->db->where('idProfesor', $id);
+        $this->db->update('profesor', $datos);
+    }
+    function cambiar_contrasena($id, $data) {
+        $datos = array(
+            'contrasena' => $data['contrasena']
         );
         $this->db->where('idProfesor', $id);
         $this->db->update('profesor', $datos);
