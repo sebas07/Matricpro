@@ -19,6 +19,11 @@ class Carrera_model extends CI_Model
         else return false;
     }
 
+    function obtenerCarrera($id){
+        $query = "select c.* from carrera as c inner join estudianteporcarrera as ec on c.idCarrera = ec.idCarrera
+                  where ec.idEstudiante = '$id'";
+        return $this->db->query($query);
+    }
 
 }
 ?>
