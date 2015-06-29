@@ -7,7 +7,7 @@ class Profesor extends CI_Controller {
         $sessionActual = $this->session->userdata('logged_in');
         if(!$sessionActual) {
             redirect(base_url().'Welcome/errorLogueo');
-        } elseif (!($sessionActual['tipo'] == 3)) {
+        } elseif (!($sessionActual['tipo'] == 3) && !($sessionActual['tipo'] == 2)) {
             redirect(base_url().'Welcome/errorPermiso');
         } else {
             $this->load->database();
@@ -74,4 +74,15 @@ class Profesor extends CI_Controller {
         }
     }
 
+    function editarDatos() {
+        $this->load->model('Profesor_model');
+        $data = array(
+            'nombre' => $this->input->post('nombre'),
+            'apellido1' => $this->input->post('apellido1'),
+            'apellido2' => $this->input->post('apellido2'),
+            'cedula' => $this->input->post('cedula')
+        );
+        $this->Profesor_model->actualizarDatos($this->session->userdata('logged_in')['id'] ,$data);
+        redirect(base_url());
+    }
 }

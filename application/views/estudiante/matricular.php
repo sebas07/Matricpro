@@ -1,7 +1,7 @@
 <h2>Lista de cursos que puede matricular</h2>
 <div clas="table-responsive">
     <?php $this->load->helper('form') ?>
-    <form method="post" action="matricular"/>
+<!--    <form method="post" action="matricular"/>-->
         <table class="table table-striped">
             <tr>
                 <th>Sigla</th>
@@ -14,35 +14,36 @@
                 <th>Opciones</th>
             </tr>
             <?php
-            if($cursoshijo){
+            if(isset($cursoshijo)){
             foreach ($cursoshijo->result() as $cursohijo) { ?>
             <tr>
                 <?php foreach($cursos->result() as $curso) {
-                if ($cursohijo->idCurso == $curso->idCurso) {
+                            if($cursohijo->idCurso == $curso->idCurso) {
                 ?>
-                <td value><?= $curso->sigla ?></td>
+                <td><?= $curso->sigla ?></td>
                 <td><?= $curso->nombre ?></td>
                 <?php
-                }
-                } ?>
+                            }
+                        } ?>
                 <td><?= $cursohijo->grupo; ?></td>
                 <td><?= $cursohijo->capacidad; ?></td>
                 <?php foreach($profesores->result() as $profesor) {
-                    if ($cursohijo->idProfesor == $profesor->idProfesor) {
+                            if ($cursohijo->idProfesor == $profesor->idProfesor) {
                         ?>
                         <td><?= $profesor->nombre .' '. $profesor->apellido1 .' '. $profesor->apellido2 ?></td>
                     <?php
-                    }
-                } ?>
+                            }
+                        } ?>
                 <td><?= $cursohijo->estado; ?></td>
                 <td><?= $cursohijo->año; ?></td>
                 <td>
-                    <input class="btn btn-success" id="matricula" type="submit" value="Matricular">
+                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo; ?>">Matricular</a>
+<!--                    <input class="btn btn-success" id="matricula" type="submit" value="Matricular">-->
                 </td>
             </tr>
             <?php } ?>
         </table>
-    </form>
+<!--    </form>-->
 </div>
 <br/>
 <?php }

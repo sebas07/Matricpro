@@ -12,9 +12,12 @@ class InicioProfesor extends CI_Controller {
         }
     }
     public function index() {
+        $this->load->model('Profesor_model');
+        $data = array();
+        $data['profesor'] = $this->Profesor_model->obtenerProfesor($this->session->userdata('logged_in')['id']);
         $this->load->view('layout/default/header.php');
         $this->load->view('layout/default/menuProfesor.php');
-        $this->load->view('welcome_message');
+        $this->load->view('welcome_message', $data);
         $this->load->view('layout/default/footer.php');
     }
     function logout() {

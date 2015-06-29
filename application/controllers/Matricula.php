@@ -35,8 +35,8 @@ class Matricula extends CI_Controller
         $this->load->view('layout/default/footer.php');
     }
 
-    function matricular(){
-        $idCurso = $this->input->post("idCursoHijo");
+    function matricular($idCurso){
+//        $idCurso = $this->input->post("idCursoHijo");
         $id = $this->session->userdata('logged_in')['id'];
         $this->estudiantePorCurso_model->agregar($idCurso,$id);
     }
