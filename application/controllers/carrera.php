@@ -87,8 +87,8 @@ class Carrera extends CI_Controller {
 //            );
 //
 //            $crud->set_relation('idCarrera','carrera','nombre');
-            $crud->set_relation('idCurso','curso','nombre');
-            $crud->set_relation_n_n('Dependencia', 'dependencia','curso','idCursoPorCarrera', 'dependencia', 'nombre');
+            $crud->set_relation('idCurso','curso','{nombre} {sigla}');
+            $crud->set_relation_n_n('Dependencia', 'dependencia','curso','idCursoPorCarrera', 'dependencia', '{nombre} {sigla}');
 //            $crud->set_relation_n_n('Especialidades', 'especialidadporprofesor','especialidad','idProfesor', 'idEspecialidad', 'descrpcion');
 
 //            $crud->set_relation('idCarrera','carrera','nombre');

@@ -126,7 +126,7 @@ class Curso extends CI_Controller {
                     return $post_array;
             }
         );
-            $crud->set_relation('idProfesor','profesor','nombre');
+            $crud->set_relation('idProfesor','profesor','{nombre} {apellido1} {apellido2}');
 
             $output = $crud->render();
             $curso =  $this->curso_model->obtener($idCurso);

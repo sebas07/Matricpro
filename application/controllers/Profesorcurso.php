@@ -15,7 +15,7 @@ class ProfesorCurso extends CI_Controller {
             $this->load->model('curso_model');
 //        }
     }
-    function index($idProfesor)
+    function index()
     {
         try{
 
@@ -27,7 +27,9 @@ class ProfesorCurso extends CI_Controller {
 
             /* Seleccionmos el nombre de la tabla de nuestra base de datos*/
             $crud->set_table('cursohijo');
-            $crud->where('idProfesor', $idProfesor);
+
+            $sessionActual = $this->session->userdata('logged_in');
+            $crud->where('idProfesor', $sessionActual['id']);
 
             /* Le asignamos un nombre */
             $crud->set_subject('Curso');
