@@ -50,7 +50,7 @@ class Curso_model extends CI_Model
         on c.idCurso = ch.idCurso inner join estudianteporcurso as ec on ch.idCursoHijo = ec.idCursoHijo
         inner join estuduante as e on ec.idEstudiante = e.idEstudiante where ec.NotaFinal >= '70' and e.idEstudiante = '$id')and
         c.idCurso not in(select c.idCurso from curso as c inner join cursohijo as ch on c.idCurso = ch.idCurso
-        inner join estudianteporcurso as ec on ch.idCurso = ec.idCursoHijo));";
+        inner join estudianteporcurso as ec on ch.idCurso = ec.idCursoHijo where ec.NotaFinal <=> null or ec.NotaFinal >= 70));";
         return $this->db->query($query);
     }
 
