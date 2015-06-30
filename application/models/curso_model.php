@@ -48,7 +48,9 @@ class Curso_model extends CI_Model
         on c.idCurso = cc.idCurso inner join dependencia as d on cc.idCursoPorCarrera = d.idCursoPorCarrera
         where cc.idCarrera = '$carrera' and d.dependencia in(select distinct c.idCurso from curso as c inner join cursohijo as ch
         on c.idCurso = ch.idCurso inner join estudianteporcurso as ec on ch.idCursoHijo = ec.idCursoHijo
-        inner join estuduante as e on ec.idEstudiante = e.idEstudiante where ec.NotaFinal >= '70' and e.idEstudiante = '$id'));";
+        inner join estuduante as e on ec.idEstudiante = e.idEstudiante where ec.NotaFinal >= '70' and e.idEstudiante = '$id')and
+        c.idCurso not in(select c.idCurso from curso as c inner join cursohijo as ch on c.idCurso = ch.idCurso
+        inner join estudianteporcurso as ec on ch.idCurso = ec.idCursoHijo));";
         return $this->db->query($query);
     }
 
