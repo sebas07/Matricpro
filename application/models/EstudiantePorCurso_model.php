@@ -12,4 +12,9 @@ class EstudiantePorCurso_model extends CI_Model
         $query = "insert into estudianteporcurso (idCursoHijo,idEstudiante) values ('$idCurso','$idEstudiante');";
         $this->db->query($query);
     }
+
+    function obtenerAvanceCurricular($idEstudiante,$idCarrera){
+        $query = "";
+        return $this->db->query($query);
+    }
 }

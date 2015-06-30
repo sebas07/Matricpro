@@ -1,7 +1,6 @@
 <h2>Lista de cursos que puede matricular</h2>
 <div clas="table-responsive">
     <?php $this->load->helper('form') ?>
-<!--    <form method="post" action="matricular"/>-->
         <table class="table table-striped">
             <tr>
                 <th>Sigla</th>
@@ -37,13 +36,13 @@
                 <td><?= $cursohijo->estado; ?></td>
                 <td><?= $cursohijo->año; ?></td>
                 <td>
-                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo; ?>">Matricular</a>
-<!--                    <input class="btn btn-success" id="matricula" type="submit" value="Matricular">-->
+
+                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo; ?>/<?= $carrera ?>">Matricular</a>
+
                 </td>
             </tr>
             <?php } ?>
         </table>
-<!--    </form>-->
 </div>
 <br/>
 <?php }

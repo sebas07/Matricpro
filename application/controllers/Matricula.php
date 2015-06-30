@@ -24,21 +24,50 @@ class Matricula extends CI_Controller
     }
 
     function listaCursos(){
-        $idCarrera = $this->input->post("idCarrera");
+        if($_GET['idCarrera']) {
+            $idCarrera = $_GET['idCarrera'];
+        }
         $id = $this->session->userdata('logged_in')['id'];
         $data['cursoshijo'] = $this->curso_model->obtenerLista($idCarrera,$id);
         $data['profesores'] = $this->profesor_model->obtenerProfesores();
         $data['cursos'] = $this->curso_model->obtenerCursos();
+        $data['carrera'] = $idCarrera;
         $this->load->view('layout/default/header.php');
         $this->load->view('layout/default/menuEstudiante.php');
         $this->load->view('estudiante/matricular.php',$data);
         $this->load->view('layout/default/footer.php');
     }
 
-    function matricular($idCurso){
-//        $idCurso = $this->input->post("idCursoHijo");
+    function listaCursosMatricula($idCarrera){
+        $id = $this->session->userdata('logged_in')['id'];
+        $data['cursoshijo'] = $this->curso_model->obtenerLista($idCarrera,$id);
+        $data['profesores'] = $this->profesor_model->obtenerProfesores();
+        $data['cursos'] = $this->curso_model->obtenerCursos();
+        $data['carrera'] = $idCarrera;
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuEstudiante.php');
+        $this->load->view('estudiante/matricular.php',$data);
+        $this->load->view('layout/default/footer.php');
+    }
+
+    function matricular($idCurso,$idCarrera){
         $id = $this->session->userdata('logged_in')['id'];
         $this->estudiantePorCurso_model->agregar($idCurso,$id);
+        $this->listaCursosMatricula($idCarrera);
+    }
+
+    function avanceCurricular(){
+        if($_GET['idCarrera']) {
+            $idCarrera = $_GET['idCarrera'];
+        }
+        $id = $this->session->userdata('logged_in')['id'];
+        $data['cursoshijo'] = $this->curso_model->obtenerLista($idCarrera,$id);
+        $data['profesores'] = $this->profesor_model->obtenerProfesores();
+        $data['cursos'] = $this->curso_model->obtenerCursos();
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuEstudiante.php');
+        $this->load->view('estudiante/avanceCurricular.php',$data);
+        $this->load->view('layout/default/footer.php');
     }
 }
 
