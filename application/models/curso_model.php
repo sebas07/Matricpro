@@ -57,7 +57,7 @@ on ch.idCursoHijo = ec.idCursoHijo where (ec.NotaFinal <=> null or ec.NotaFinal 
         $query = "select distinct c.sigla,c.nombre,ch.grupo,ch.semestre,ch.año,ec.NotaFinal from estudianteporcurso as ec
         inner join cursohijo as ch on ec.idCursoHijo = ch.idCursoHijo inner join curso as c on ch.idCurso = c.idCurso
         inner join cursoporcarrera as cc on c.idCurso = cc.idCurso inner join carrera as ca on cc.idCarrera = ca.idCarrera
-        where ec.idEstudiante = '$id' and ec.NotaFinal >= 0 and ca.idCarrera = '$carrera';";
+        where ec.idEstudiante = '$id' and ca.idCarrera = '$carrera';";
         return $this->db->query($query);
     }
 

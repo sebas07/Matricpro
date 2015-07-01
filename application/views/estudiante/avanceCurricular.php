@@ -8,6 +8,7 @@
             <th>Grupo</th>
             <th>Semestre</th>
             <th>Año</th>
+            <th>Estado</th>
             <th>Nota</th>
         </tr>
         <?php
@@ -19,6 +20,15 @@
                 <td><?= $curso->grupo; ?></td>
                 <td><?= $curso->semestre; ?></td>
                 <td><?= $curso->año; ?></td>
+                <?php if($curso->NotaFinal >= 70){
+                    $curso->estado = "Aprobado";
+                } elseif($curso->NotaFinal == null){
+                    $curso->estado = "Matriculado";
+                } else {
+                    $curso->estado = "Reprobado";
+                }
+                ?>
+                <td><?= $curso->estado; ?></td>
                 <td><?= $curso->NotaFinal; ?></td>
             </tr>
         <?php } ?>
