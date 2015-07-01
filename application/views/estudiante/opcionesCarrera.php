@@ -1,4 +1,4 @@
-<h4>Seleccione la carrera</h4>
+<h4>Seleccione la carrera para ver la lista de cursos matriculables</h4>
 <?php $this->load->helper('form') ?>
 <form method="get" action="listaCursos"/>
     <select class="carrera" name="idCarrera">

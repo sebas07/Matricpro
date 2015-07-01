@@ -1,4 +1,4 @@
-<h4>Seleccione la carrera</h4>
+<h4>Seleccione la carrera para ver el expediente académico</h4>
 <?php $this->load->helper('form') ?>
 <form method="get" action="mostrarAvance"/>
 <select class="carrera" name="idCarrera">
