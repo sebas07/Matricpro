@@ -1,4 +1,4 @@
-<h2>Lista de cursos que puede matricular</h2>
+<h2>Expediente Académico</h2>
 <div clas="table-responsive">
     <?php $this->load->helper('form') ?>
     <table class="table table-striped">
