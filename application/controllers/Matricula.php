@@ -56,17 +56,24 @@ class Matricula extends CI_Controller
         $this->listaCursosMatricula($idCarrera);
     }
 
-    function avanceCurricular(){
+    function mostrarAvance(){
         if($_GET['idCarrera']) {
             $idCarrera = $_GET['idCarrera'];
         }
         $id = $this->session->userdata('logged_in')['id'];
-        $data['cursoshijo'] = $this->curso_model->obtenerLista($idCarrera,$id);
-        $data['profesores'] = $this->profesor_model->obtenerProfesores();
-        $data['cursos'] = $this->curso_model->obtenerCursos();
+        $data['cursos'] = $this->curso_model->obtenerAvance($idCarrera,$id);
         $this->load->view('layout/default/header.php');
         $this->load->view('layout/default/menuEstudiante.php');
         $this->load->view('estudiante/avanceCurricular.php',$data);
+        $this->load->view('layout/default/footer.php');
+    }
+
+    function avanceCurricular(){
+        $id = $this->session->userdata('logged_in')['id'];
+        $data['carreras'] = $this->carrera_model->obtenerCarrera($id);
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuEstudiante.php');
+        $this->load->view('estudiante/opcionesAvanceCurricular.php',$data);
         $this->load->view('layout/default/footer.php');
     }
 }

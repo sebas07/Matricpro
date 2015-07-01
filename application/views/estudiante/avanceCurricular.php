@@ -1,7 +1,34 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jorge
- * Date: 29/06/2015
- * Time: 23:46
- */ 
+<h2>Lista de cursos que puede matricular</h2>
+<div clas="table-responsive">
+    <?php $this->load->helper('form') ?>
+    <table class="table table-striped">
+        <tr>
+            <th>Sigla</th>
+            <th>Nombre del curso</th>
+            <th>Grupo</th>
+            <th>Semestre</th>
+            <th>Año</th>
+            <th>Nota</th>
+        </tr>
+        <?php
+        if(isset($cursos)){
+        foreach ($cursos->result() as $curso) { ?>
+            <tr>
+                <td><?= $curso->sigla ?></td>
+                <td><?= $curso->nombre ?></td>
+                <td><?= $curso->grupo; ?></td>
+                <td><?= $curso->semestre; ?></td>
+                <td><?= $curso->año; ?></td>
+                <td><?= $curso->NotaFinal; ?></td>
+            </tr>
+        <?php } ?>
+    </table>
+</div>
+<br/>
+<?php }
+else {
+    echo "<p>error en la app</p>";
+}
+?>
+</body>
+</html>
