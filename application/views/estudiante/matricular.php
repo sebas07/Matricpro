@@ -37,7 +37,8 @@
                 <td><?= $cursohijo->año; ?></td>
                 <td>
 
-                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo; ?>/<?= $carrera ?>">Matricular</a>
+                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo;
+                    ?>/<?= $carrera ?>/<?= $cursohijo->capacidad ?>">Matricular</a>
 
                 </td>
             </tr>

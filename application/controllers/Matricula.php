@@ -50,10 +50,17 @@ class Matricula extends CI_Controller
         $this->load->view('layout/default/footer.php');
     }
 
-    function matricular($idCurso,$idCarrera){
-        $id = $this->session->userdata('logged_in')['id'];
-        $this->estudiantePorCurso_model->agregar($idCurso,$id);
-        $this->listaCursosMatricula($idCarrera);
+    function matricular($idCurso,$idCarrera,$capacidad){
+        $cantidad = $this->estudiantePorCurso_model->cantidad($idCurso);
+        if($cantidad < $capacidad){
+            $id = $this->session->userdata('logged_in')['id'];
+            $this->estudiantePorCurso_model->agregar($idCurso,$id);
+            $this->listaCursosMatricula($idCarrera);
+        } else {
+            echo "<script>alert('El curso esta lleno mamador')</script>";
+            $this->listaCursosMatricula($idCarrera);
+        }
+
     }
 
     function mostrarAvance(){

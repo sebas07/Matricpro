@@ -13,8 +13,9 @@ class EstudiantePorCurso_model extends CI_Model
         $this->db->query($query);
     }
 
-    function obtenerAvanceCurricular($idEstudiante,$idCarrera){
-        $query = "";
-        return $this->db->query($query);
+    function cantidad($idCurso){
+        $query = "select count(*)as cuenta from estudianteporcurso as ec where ec.idCursoHijo = '$idCurso';";
+        return $this->db->query($query)->result()[0]->cuenta;
     }
+
 }

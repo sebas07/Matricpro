@@ -24,12 +24,13 @@
                     $curso->estado = "Aprobado";
                 } elseif($curso->NotaFinal == null){
                     $curso->estado = "Matriculado";
+                    $curso->NotaFinal = 'MA';
                 } else {
                     $curso->estado = "Reprobado";
                 }
                 ?>
                 <td><?= $curso->estado; ?></td>
-                <td><?= $curso->NotaFinal; ?></td>
+                <td><?= $curso->NotaFinal ?></td>
             </tr>
         <?php } ?>
     </table>
