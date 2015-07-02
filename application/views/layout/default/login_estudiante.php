@@ -18,7 +18,7 @@
         <?= form_submit('btnIngresar', 'Ingresar', 'class="form-control btn btn-primary"'); ?>
         <?= form_close() ?>
         <br />
-        <?php echo validation_errors('<p class="error">'); ?>
+<!--        --><?php //echo validation_errors('<p class="error">'); ?>
     </div>
     <div class="col-md-4">
         <h4>Ingresar como:</h4>

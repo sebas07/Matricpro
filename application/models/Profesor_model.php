@@ -23,13 +23,11 @@ class Profesor_model extends CI_Model
             return false;
         }
     }
-
     function obtenerProfesores(){
         $query = $this->db->get('profesor');
         if($query->num_rows() > 0) return $query;
         else return false;
     }
-
     function obtenerProfesor($id) {
         $this->db->from('profesor');
         $this->db->where('idProfesor', $id);
