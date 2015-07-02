@@ -13,6 +13,7 @@ class Administrador extends CI_Controller
         } else {
             $this->load->database();
             $this->load->library('Grocery_crud');
+            $this->load->model('Administrador_model');
         }
     }
     function index()
@@ -51,5 +52,19 @@ class Administrador extends CI_Controller
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
+    }
+    function cambioContrasenna() {
+        $data['administrador'] = $this->Administrador_model->obtenerAdministrador($this->session->userdata('logged_in')['id']);
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuAdministrador.php');
+        $this->load->view('layout/default/cambio_contrasena.php', $data);
+        $this->load->view('layout/default/footer.php');
+    }
+    function cambiarContrasenna() {
+        $data = array(
+            'contrasena' => $this->input->post('contrasena')
+        );
+        $this->Administrador_model->cambiarContrasenna($this->session->userdata('logged_in')['id'], $data);
+        redirect(base_url());
     }
 }
