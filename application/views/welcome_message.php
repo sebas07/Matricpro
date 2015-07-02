@@ -42,12 +42,28 @@
                 <br />
                 <a class="btn btn-warning" href="<?= base_url() ?>administrador/cambioContrasenna">Cambiar contraseña</a>
             <?= form_close() ?>
+            <?php elseif(isset($estudiante)): ?>
+                <?= form_open('#') ?>
+                    <?php
+                        $carnet_e = array('name' => 'carnet_e', 'value' => $estudiante->carnet, 'class' => 'form-control', 'disabled' => 'disabled');
+                        $nombre_e = array('name' => 'nombre_e', 'value' => $estudiante->nombre, 'class' => 'form-control', 'disabled' => 'disabled');
+                        $apellido1_e = array('name' => 'apellido1_e', 'value' => $estudiante->apellido1, 'class' => 'form-control', 'disabled' => 'disabled');
+                        $apellido2_e = array('name' => 'apellido2_e', 'value' => $estudiante->apellido2, 'class' => 'form-control', 'disabled' => 'disabled');
+                        $fechaNacimiento_e = array('name' => 'fechaNacimiento_e', 'value' => $estudiante->fechaNacimiento, 'class' => 'form-control', 'disabled' => 'disabled');
+                    ?>
+                    <?= form_label('Carnet: ', 'carnet_e'); ?>
+                    <?= form_input($carnet_e) ?>
+                    <?= form_label('Nombre: ', 'nombre_e'); ?>
+                    <?= form_input($nombre_e) ?>
+                    <?= form_label('Primer apellido: ', 'apellido1_e'); ?>
+                    <?= form_input($apellido1_e) ?>
+                    <?= form_label('Segundo apellido: ', 'apellido2_e'); ?>
+                    <?= form_input($apellido2_e) ?>
+                    <?= form_label('Fecha de nacimiento: ', 'fechaNacimiento_e'); ?>
+                    <?= form_input($fechaNacimiento_e) ?>
+                    <br />
+                    <a class="btn btn-warning" href="<?= base_url() ?>estudiante/cambioContrasenna">Cambiar contraseña</a>
+                <?= form_close() ?>
         <?php endif; ?>
     </div>
 </div>
-
-<script>
-    function mensaje() {
-        return confirm('¿Realmente desea guardar los cambios?');
-    }
-</script>

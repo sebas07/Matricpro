@@ -12,9 +12,12 @@ class InicioEstudiante extends CI_Controller {
         }
     }
     public function index() {
+        $this->load->model('Estudiante_model');
+        $data = array();
+        $data['estudiante'] = $this->Estudiante_model->obtenerEstudiante($this->session->userdata('logged_in')['id']);
         $this->load->view('layout/default/header.php');
         $this->load->view('layout/default/menuEstudiante.php');
-        $this->load->view('welcome_message');
+        $this->load->view('welcome_message', $data);
         $this->load->view('layout/default/footer.php');
     }
     function logout() {

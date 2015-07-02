@@ -7,11 +7,12 @@ class Estudiante extends CI_Controller {
         $sessionActual = $this->session->userdata('logged_in');
         if(!$sessionActual) {
             redirect(base_url().'Welcome/errorLogueo');
-        } elseif (!($sessionActual['tipo'] == 3)) {
+        } elseif (!($sessionActual['tipo'] == 3) && !($sessionActual['tipo'] == 1)) {
             redirect(base_url().'Welcome/errorPermiso');
         } else {
             $this->load->database();
             $this->load->library('Grocery_crud');
+            $this->load->model('Estudiante_model');
         }
     }
     function index()
@@ -61,5 +62,19 @@ class Estudiante extends CI_Controller {
             /* Si algo sale mal cachamos el error y lo mostramos */
             show_error($e->getMessage().' --- '.$e->getTraceAsString());
         }
+    }
+    function cambioContrasenna() {
+        $data['estudiante'] = $this->Estudiante_model->obtenerEstudiante($this->session->userdata('logged_in')['id']);
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuEstudiante.php');
+        $this->load->view('layout/default/cambio_contrasena.php', $data);
+        $this->load->view('layout/default/footer.php');
+    }
+    function cambiarContrasenna() {
+        $data = array(
+            'contrasena' => $this->input->post('contrasena')
+        );
+        $this->Estudiante_model->cambiarContrasenna($this->session->userdata('logged_in')['id'], $data);
+        redirect(base_url());
     }
 }

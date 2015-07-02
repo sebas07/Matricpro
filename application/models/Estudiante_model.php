@@ -22,4 +22,22 @@ class Estudiante_model extends CI_Model
             return false;
         }
     }
+    function obtenerEstudiante($id) {
+        $this->db->from('estuduante');
+        $this->db->where('idEstudiante', $id);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if($query->num_rows() > 0) {
+            return $query->result()[0];
+        } else {
+            return false;
+        }
+    }
+    function cambiarContrasenna($id, $data) {
+        $datos = array(
+            'contrasena' => $data['contrasena']
+        );
+        $this->db->where('idEstudiante', $id);
+        $this->db->update('estuduante', $datos);
+    }
 }

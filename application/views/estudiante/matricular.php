@@ -1,5 +1,5 @@
 <h2>Lista de cursos que puede matricular</h2>
-<div clas="table-responsive">
+<div class="table-responsive">
     <?php $this->load->helper('form') ?>
         <table class="table table-striped">
             <tr>
