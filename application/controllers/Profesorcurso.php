@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ProfesorCurso extends CI_Controller {
+class Profesorcurso extends CI_Controller {
     function __construct()
     {
         parent::__construct();
@@ -12,7 +12,7 @@ class ProfesorCurso extends CI_Controller {
 //        } else {
             $this->load->database();
             $this->load->library('Grocery_crud');
-            $this->load->model('curso_model');
+            $this->load->model('Curso_model');
 //        }
     }
     function index()
@@ -134,8 +134,15 @@ class ProfesorCurso extends CI_Controller {
             $crud->set_relation('idEstudiante','estuduante','{nombre} {apellido1} {apellido2} / {carnet}');
 //            $crud->set_relation('idEstudiante','estuduante','');
             $output = $crud->render();
-            $curso =  $this->curso_model->obtenerPadre($idCurso);
-            $data['nombreCurso'] = $curso->nombre.' '. $curso->sigla.'-Grupo: '. $curso->grupo ;
+            $curso =  $this->Curso_model->obtenerPadre($idCurso);
+//            if(!$curso){
+//                $data['nombreCurso'] = 'retorno falso';
+//            } else {
+                $data['nombreCurso'] = $curso->nombre.' '. $curso->sigla.'-Grupo: '. $curso->grupo ;
+//            }
+
+
+//            $data['nombreCurso'] = 'pruueba';
             $this->load->view('layout/default/header.php');
             $this->load->view('layout/default/menuProfesor.php');
             $this->load->view('layout/default/titulos.php',$data);
