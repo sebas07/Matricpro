@@ -50,7 +50,7 @@ on cc.idCursoPorCarrera = d.idCursoPorCarrera where cc.idCarrera = '$carrera' an
 from curso as c inner join cursohijo as ch on c.idCurso = ch.idCurso inner join estudianteporcurso as ec
 on ch.idCursoHijo = ec.idCursoHijo where ec.NotaFinal >= '70' and ec.idEstudiante = '$id') and c.idCurso not in(select c.idCurso
 from curso as c inner join cursohijo as ch on c.idCurso = ch.idCurso inner join estudianteporcurso as ec
-on ch.idCursoHijo = ec.idCursoHijo where (ec.NotaFinal <=> null or ec.NotaFinal >= 70) and ec.idEstudiante = '$id'));";
+on ch.idCursoHijo = ec.idCursoHijo where (ec.NotaFinal <=> null or ec.NotaFinal >= 70) and ec.idEstudiante = '$id'))  and ch.estado = 1;";
         return $this->db->query($query);
     }
 
