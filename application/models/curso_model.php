@@ -62,5 +62,17 @@ on ch.idCursoHijo = ec.idCursoHijo where (ec.NotaFinal <=> null or ec.NotaFinal 
         return $this->db->query($query);
     }
 
+    function obtenerMatriculados($id){
+        $query = "select ec.idEstudiantePorCurso, ch.* from cursohijo as ch inner join estudianteporcurso as ec
+        on ec.idCursoHijo = ch.idCursoHijo where ec.idEstudiante = '$id' and ec.NotaFinal <=> null and ch.estado = 1;";
+        return $this->db->query($query);
+    }
+
+    function retirarCurso($id){
+        echo $id;
+        $query = "delete from estudianteporcurso where idEstudiantePorCurso = '$id';";
+        $this->db->query($query);
+    }
+
 }
 ?>

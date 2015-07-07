@@ -6,7 +6,7 @@
                 <th>Sigla</th>
                 <th>Nombre del curso</th>
                 <th>Grupo</th>
-                <th>Cupo disponible</th>
+                <th>Cupo</th>
                 <th>Profesor</th>
                 <th>Semestre</th>
                 <th>Año</th>
@@ -37,7 +37,8 @@
                 <td><?= $cursohijo->año; ?></td>
                 <td>
 
-                    <a class="btn btn-success" href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo;
+                    <a class="btn btn-success" onclick="return confirm('¿Esta seguro que desea matricular el curso?')"
+                       href="<?= base_url(); ?>matricula/matricular/<?= $cursohijo->idCursoHijo;
                     ?>/<?= $carrera ?>/<?= $cursohijo->capacidad ?>">Matricular</a>
 
                 </td>

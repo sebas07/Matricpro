@@ -55,9 +55,10 @@ class Matricula extends CI_Controller
         if($cantidad < $capacidad){
             $id = $this->session->userdata('logged_in')['id'];
             $this->estudiantePorCurso_model->agregar($idCurso,$id);
+            echo "<script>alert('El curso fue matriculado con exito')</script>";
             $this->listaCursosMatricula($idCarrera);
         } else {
-            echo "<script>alert('El curso esta lleno mamador')</script>";
+            echo "<script>alert('El curso solicitado se encuentra lleno')</script>";
             $this->listaCursosMatricula($idCarrera);
         }
 
@@ -82,6 +83,23 @@ class Matricula extends CI_Controller
         $this->load->view('layout/default/menuEstudiante.php');
         $this->load->view('estudiante/opcionesAvanceCurricular.php',$data);
         $this->load->view('layout/default/footer.php');
+    }
+
+    function listaMatricula(){
+        $id = $this->session->userdata('logged_in')['id'];
+        $data['cursoshijo'] = $this->curso_model->obtenerMatriculados($id);
+        $data['profesores'] = $this->profesor_model->obtenerProfesores();
+        $data['cursos'] = $this->curso_model->obtenerCursos();
+        $this->load->view('layout/default/header.php');
+        $this->load->view('layout/default/menuEstudiante.php');
+        $this->load->view('estudiante/retirarCurso.php',$data);
+        $this->load->view('layout/default/footer.php');
+    }
+
+    function retirar($id){
+        $this->curso_model->retirarCurso($id);
+        echo "<script>alert('El curso fue retirado con exito')</script>";
+        $this->listaMatricula();
     }
 }
 
