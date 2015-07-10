@@ -5,13 +5,13 @@
         <hr />
         <?= form_open('verifyLogin/index') ?>
         <?php
-        $carnet = array('name' => 'carnet', 'placeholder' => 'Escriba su carnet', 'class' => 'form-control');
-        $contrasenna = array('name' => 'contrasenna', 'placeholder' => 'Contrasenna', 'class' => 'form-control');
+        $carnet = array('name' => 'carnet', 'placeholder' => 'Escriba su número de carnet', 'class' => 'form-control');
+        $contrasenna = array('name' => 'contrasenna', 'placeholder' => 'Escriba su contraseña', 'class' => 'form-control');
         ?>
-        <?= form_label('Carnet: ', 'carnet') ?>
+        <?= form_label('Número de carnet: ', 'carnet') ?>
         <?= form_input($carnet) ?>
         <br /><br />
-        <?= form_label('Contrasenna: ', 'contrasenna'); ?>
+        <?= form_label('Contraseña: ', 'contrasenna'); ?>
         <?= form_password($contrasenna) ?>
         <br />
         <br />

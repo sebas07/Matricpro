@@ -1,4 +1,4 @@
-<h2>Expediente Académico</h2>
+<h2>Expediente académico</h2>
 <div class="table-responsive">
     <?php $this->load->helper('form') ?>
     <table class="table table-striped">

@@ -18,10 +18,10 @@
                 <?= form_input($apellido1_p) ?>
                 <?= form_label('Segundo apellido: ', 'apellido2_p'); ?>
                 <?= form_input($apellido2_p) ?>
-                <?= form_label('Cedula: ', 'cedula_p'); ?>
+                <?= form_label('Número de cédula: ', 'cedula_p'); ?>
                 <?= form_input($cedula_p) ?>
                 <br />
-                <a class="btn btn-warning" href="<?= base_url(); ?>profesor/cambio_contrasena">Cambiar contraseña</a>
+                <a class="btn btn-warning" href="<?= base_url(); ?>profesor/cambio_contrasena">Cambio de contraseña</a>
             <?= form_close() ?>
         <?php elseif(isset($administrador)): ?>
             <?= form_open('#') ?>
@@ -37,10 +37,10 @@
                 <?= form_input($apellido1_a) ?>
                 <?= form_label('Segundo apellido: ', 'apellido2_a'); ?>
                 <?= form_input($apellido2_a) ?>
-                <?= form_label('Cedula: ', 'cedula_a'); ?>
+                <?= form_label('Número de cédula: ', 'cedula_a'); ?>
                 <?= form_input($cedula_a) ?>
                 <br />
-                <a class="btn btn-warning" href="<?= base_url() ?>administrador/cambioContrasenna">Cambiar contraseña</a>
+                <a class="btn btn-warning" href="<?= base_url() ?>administrador/cambioContrasenna">Cambio de contraseña</a>
             <?= form_close() ?>
             <?php elseif(isset($estudiante)): ?>
                 <?= form_open('#') ?>
@@ -51,7 +51,7 @@
                         $apellido2_e = array('name' => 'apellido2_e', 'value' => $estudiante->apellido2, 'class' => 'form-control', 'disabled' => 'disabled');
                         $fechaNacimiento_e = array('name' => 'fechaNacimiento_e', 'value' => $estudiante->fechaNacimiento, 'class' => 'form-control', 'disabled' => 'disabled');
                     ?>
-                    <?= form_label('Carnet: ', 'carnet_e'); ?>
+                    <?= form_label('Número de carnet: ', 'carnet_e'); ?>
                     <?= form_input($carnet_e) ?>
                     <?= form_label('Nombre: ', 'nombre_e'); ?>
                     <?= form_input($nombre_e) ?>
@@ -62,7 +62,7 @@
                     <?= form_label('Fecha de nacimiento: ', 'fechaNacimiento_e'); ?>
                     <?= form_input($fechaNacimiento_e) ?>
                     <br />
-                    <a class="btn btn-warning" href="<?= base_url() ?>estudiante/cambioContrasenna">Cambiar contraseña</a>
+                    <a class="btn btn-warning" href="<?= base_url() ?>estudiante/cambioContrasenna">Cambio de contraseña</a>
                 <?= form_close() ?>
         <?php endif; ?>
     </div>

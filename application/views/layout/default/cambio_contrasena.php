@@ -10,33 +10,33 @@
         ?>
         <?php if(isset($profesor)): ?>
             <?= form_open(base_url().'profesor/cambiar_contrasena', $formulario) ?>
-                <?= form_label('Actual: ', 'actual'); ?>
+                <?= form_label('Contraseña actual: ', 'actual'); ?>
                 <?= form_password($actual) ?>
-                <?= form_label('Nueva: ', 'contrasena'); ?>
+                <?= form_label('Contraseña nueva: ', 'contrasena'); ?>
                 <?= form_password($contrasena) ?>
-                <?= form_label('Confirmar: ', 'contrasena2'); ?>
+                <?= form_label('Confirmar contraseña: ', 'contrasena2'); ?>
                 <?= form_password($contrasena2) ?>
                 <br />
                 <?= form_submit('btnAceptar', 'Guardar cambios', 'class="form-control btn btn-primary" onclick="return mensajeP()"') ?>
             <?= form_close() ?>
         <?php elseif(isset($administrador)): ?>
             <?= form_open(base_url().'administrador/cambiarContrasenna', $formulario) ?>
-                <?= form_label('Actual: ', 'actual'); ?>
+                <?= form_label('Contraseña actual: ', 'actual'); ?>
                 <?= form_password($actual) ?>
-                <?= form_label('Nueva: ', 'contrasena'); ?>
+                <?= form_label('Contraseña nueva: ', 'contrasena'); ?>
                 <?= form_password($contrasena) ?>
-                <?= form_label('Confirmar: ', 'contrasena2'); ?>
+                <?= form_label('Confirmar contraseña: ', 'contrasena2'); ?>
                 <?= form_password($contrasena2) ?>
                 <br />
                 <?= form_submit('btnAceptar', 'Guardar cambios', 'class="form-control btn btn-primary" onclick="return mensajeA()"') ?>
             <?= form_close() ?>
         <?php elseif(isset($estudiante)): ?>
             <?= form_open(base_url().'estudiante/cambiarContrasenna', $formulario) ?>
-                <?= form_label('Actual: ', 'actual'); ?>
+                <?= form_label('Contraseña actual: ', 'actual'); ?>
                 <?= form_password($actual) ?>
-                <?= form_label('Nueva: ', 'contrasena'); ?>
+                <?= form_label('Contraseña nueva: ', 'contrasena'); ?>
                 <?= form_password($contrasena) ?>
-                <?= form_label('Confirmar: ', 'contrasena2'); ?>
+                <?= form_label('Confirmar contraseña: ', 'contrasena2'); ?>
                 <?= form_password($contrasena2) ?>
                 <br />
                 <?= form_submit('btnAceptar', 'Guardar cambios', 'class="form-control btn btn-primary" onclick="return mensajeE()"') ?>
@@ -57,7 +57,7 @@
             return false;
         }
         if (x == null || x == "") {
-            alert("El campo de la nueva contraseña debe ser completado");
+            alert("El campo de contraseña nueva debe ser completado");
             document.forms["cambio"]["contrasena"].focus();
             return false;
         }
@@ -73,11 +73,11 @@
                 return false;
             }
         } else {
-            alert('La contraseña es invalida');
+            alert('La contraseña es inválida');
             document.forms["cambio"]["actual"].focus();
             return false;
         }
-        return confirm('¿Realmente desea guardar los cambios?');
+        return confirm('¿Realmente desea guardar los cambios realizados?');
     }
     function mensajeA() {
         var c = '<?php if(isset($administrador)) {echo $administrador->contrasena; } ?>';
@@ -90,7 +90,7 @@
             return false;
         }
         if (x == null || x == "") {
-            alert("El campo de la nueva contraseña debe ser completado");
+            alert("El campo de contraseña nueva debe ser completado");
             document.forms["cambio"]["contrasena"].focus();
             return false;
         }
@@ -106,11 +106,11 @@
                 return false;
             }
         } else {
-            alert('La contraseña es invalida');
+            alert('La contraseña es inválida');
             document.forms["cambio"]["actual"].focus();
             return false;
         }
-        return confirm('¿Realmente desea guardar los cambios?');
+        return confirm('¿Realmente desea guardar los cambios realizados?');
     }
     function mensajeE() {
         var c = '<?php if(isset($estudiante)) {echo $estudiante->contrasena; } ?>';
@@ -139,10 +139,10 @@
                 return false;
             }
         } else {
-            alert('La contraseña es invalida');
+            alert('La contraseña es inválida');
             document.forms["cambio"]["actual"].focus();
             return false;
         }
-        return confirm('¿Realmente desea guardar los cambios?');
+        return confirm('¿Realmente desea guardar los cambios realizados?');
     }
 </script>

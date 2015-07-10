@@ -7,6 +7,6 @@
 <body>
     <h1>Error, el usuario no se encuentra logueado en el sistema.</h1>
     <br />
-    <h3>Debe loguearse para continuar. <a href="<?= base_url();?>Logueo">Ir al logueo</a></h3>
+    <h3>Debe loguearse para continuar. <a href="<?= base_url();?>Logueo">Ir al formulario de logueo</a></h3>
 </body>
 </html>

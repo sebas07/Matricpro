@@ -5,13 +5,13 @@
         <hr />
         <?= form_open('verifyLogin/profesor') ?>
         <?php
-        $cedula = array('name' => 'cedula', 'placeholder' => 'Escriba su numero de cedula', 'class' => 'form-control');
-        $contrasenna = array('name' => 'contrasenna', 'placeholder' => 'Contrasenna', 'class' => 'form-control');
+        $cedula = array('name' => 'cedula', 'placeholder' => 'Escriba su número de cédula', 'class' => 'form-control');
+        $contrasenna = array('name' => 'contrasenna', 'placeholder' => 'Escriba su contraseña', 'class' => 'form-control');
         ?>
-        <?= form_label('Cedula: ', 'cedula') ?>
+        <?= form_label('Número de cédula: ', 'cedula') ?>
         <?= form_input($cedula) ?>
         <br /><br />
-        <?= form_label('Contrasenna: ', 'contrasenna'); ?>
+        <?= form_label('Contraseña: ', 'contrasenna'); ?>
         <?= form_password($contrasenna) ?>
         <br />
         <br />
